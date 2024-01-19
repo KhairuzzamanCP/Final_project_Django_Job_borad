@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block page_title %}Profile Page{% endblock page_title %}
+
+{% block content %}
+<div class="text-center">
+  <div class="d-flex justify-content-end align-items-center gap-2">
+    <a href="{% url "edit_profile" request.user.id %}">
+      <button class="btn btn-primary mt-4">Edit Profiles</button>
+    </a>
+
+  </div>
+  <div>
+    <h3 class="text-start">Hello, Mr./Mrs <strong class="text-success">{{request.user.first_name}}
+        {{request.user.last_name}}</strong> your Dashborad</h3>
+
+{% if not request.user.is_superuser%}
+{% if jobs|length > 0 %}
+<table class="table table-hover p-3 mb-5 mr-5">
+  <thead>
+    <tr>
+      <th scope="col">Sl.no</th>
+      <th scope="col">Jobseekrs Name</th>
+      <th scope="col">User email</th>
+      <th scope="col">Dounload</th>
+    </tr>
+  </thead>
+  <tbody>
+    <h1>Jobs {{jobs|length}}</h1>
+
+    {% for job in jobs %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{job.user.first_name}} {{job.user.last_name}}</td>
+      <td>{{job.user.email}}</td>
+      <td>
+        <a href="{{ job.Cv.url }}" download>
+          <img src="{{ job.Cv.url }}" alt="Image" style="height: 100px; width: 150px;">
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="text-danger">You haven't Apply any Job-seekes yet.</p>
+{% endif %}
+
+{% endif %}
+
+  </div>
+</div>
+
+{% if request.user.is_superuser %}
+{% if employees %}
+<table class="table table-hover p-3 mb-5 mr-5">
+  <thead>
+    <tr>
+      <th scope="col">Sl.no</th>
+      <th scope="col">Employeee Name</th>
+      <th scope="col">User email</th>
+      <th scope="col">Dounload Cv</th>
+      <th scope="col">Created Job Post</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <h1 class="text-center">Jobs {{employees|length}}</h1>
+    {% for employee in employees %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{employee.user.first_name}} {{employee.user.last_name}}</td>
+      <td>{{employee.user.email}}</td>
+      <td>
+        <a href="{{ job.Cv.url }}" download>
+          <img src="{{ employee.Cv.url }}" alt="Image" style="height: 100px; width: 150px;">
+        </a>
+      </td>
+      <td>{{employee.employee.date_posted}}</td>
+      <td>{{order.car.salary}}</td>
+      <td>{{ .ordered_on}}</td>
+      <td>{{ order.car.job_name.name}}</td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="text-danger">You haven't Employyeee yet.</p>
+{% endif %}
+
+{% endif %}
+
+
+{% endblock content %}

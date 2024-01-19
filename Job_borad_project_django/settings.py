@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['https://job-borad.onrender.com','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://job-borad.onrender.com']
 
 # Application definition
 

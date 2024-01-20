@@ -22,42 +22,13 @@ class AddJobCreateView(CreateView):
         return context
     
     def form_invalid(self, form):
-        messages.error(self.request, 'Something went wrong. your car not added in the list.')
+        messages.error(self.request, 'Something went wrong. your job not added in the list.')
         return super().form_invalid(form)
     
     def form_valid(self, form):
         messages.success(self.request, 'Job added successful')
         return super().form_valid(form)
     
-# Car details views
-# class JobDetailsView(DetailView):
-#     model = EmployeeModel
-#     template_name = 'job_details.html'
-    
-#     def post(self,request,*args, **kwargs):
-#         job = self.get_object()
-#         if self.request.method == 'POST':
-#             comment_form = CommentForm(data= self.request.POST)
-#             if comment_form.is_valid():
-#                 new_comment = comment_form.save(commit=False)
-#                 new_comment.job = job
-#                 new_comment.save()
-#                 messages.success(self.request, 'Thanks for your opinion!')
-#             return self.get(request,*args, **kwargs)
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         job = self.object
-#         comments = job.comments.all()
-#         comment_form = CommentForm()
-#         # context['user_has_applied'] = Job_seeker.objects.filter(user=self.request.user, employee=job).exists()
-#         context['service'] = self.get_object()
-#         context['comments'] = comments
-#         context['form'] = comment_form
-
-#         return context
-    
-
 class JobDetailsView(DetailView):
     model = EmployeeModel
     template_name = 'job_details.html'

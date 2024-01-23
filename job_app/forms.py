@@ -1,5 +1,5 @@
 from django import forms 
-from job_app.models import EmployeeModel, Comment,Job_seeker 
+from job_app.models import EmployeeModel,Job_seeker 
 
 class CarModelForm(forms.ModelForm):
     class Meta:
@@ -18,9 +18,6 @@ class jobsekeerFrom(forms.ModelForm):
             job_seeker.save()
         return job_seeker
 
-class CommentForm(forms.ModelForm):
-    class Meta:
-        model = Comment
-        fields = ['name', 'email', 'text']
+
 
   

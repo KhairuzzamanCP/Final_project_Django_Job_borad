@@ -25,12 +25,3 @@ class Job_seeker(models.Model):
     def __str__(self) -> str:
         return f'{self.user}'
 
-class Comment(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    text = models.TextField()
-    created_on = models.DateTimeField(auto_now_add = True)
-    employee = models.ForeignKey(EmployeeModel, on_delete = models.CASCADE, related_name = 'comments')
-
-    def __str__(self) -> str:
-        return f'comment by {self.name}'

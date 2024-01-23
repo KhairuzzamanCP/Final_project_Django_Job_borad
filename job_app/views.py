@@ -2,14 +2,14 @@ from django.shortcuts import render,redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView,DetailView
 from job_app.models import EmployeeModel,Job_seeker
-from job_app.forms import CarModelForm,CommentForm,jobsekeerFrom
+from job_app.forms import CarModelForm,jobsekeerFrom
 from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
 
 # Create your views here.
 
-# Add Car implementation
+
 class AddJobCreateView(CreateView):
     model = EmployeeModel
     form_class = CarModelForm

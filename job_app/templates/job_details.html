@@ -19,9 +19,9 @@
         <p>Requirements: <strong>{{service.requirements}}</strong></p>
         <p>Location: <strong>{{service.location}}</strong></p>
         <p>Date_posted: <strong>{{service.date_posted}}</strong></p>
-        <p>Srlary: <strong>${{service.salary}}</strong></p>
-        <p>Posotion: <strong>{{service.position}}</strong></p>
-        <p>Service: <strong>{{service.service}}</strong></p>
+        <p>Saraly: <strong>${{service.salary}}</strong></p>
+        <p>Position: <strong>{{service.position}}</strong></p>
+        <p>Service Name: <strong>{{service.service}}</strong></p>
         {% if request.user.is_authenticated %}
     
             {% if not request.user.is_superuser %}
@@ -33,34 +33,6 @@
         {% endif %}
     </div>
 </div>
-<div class="row rounded py-4" style="background-color: #e4e4e4">
-        <h3>Total Comments: {{comments | length}}</h3>
-        {% for comment in comments %}
-        <div class="m-2 p-2 rounded" style="width: 80%; background-color: #fefefe">
-            <p class="mb-1">
-                <strong>{{comment.name}}</strong>
-                <small> ({{comment.created_on}})</small>
-            </p>
-            <q>{{comment.text}}</q>
-        </div>
-        {% endfor %}
-        </div>
-<div class="row">
-    <h3>Leave a comment</h3>
-    <form method="post" novalidate>
-        {% load crispy_forms_tags %}
-        {% csrf_token %}
-        <!-- {{ form | crispy }}-->
-        {% for field in form %}
-            <div>
-                <strong>{{field.label_tag}}</strong>
-            </div>
-            {{field}}
-            <div>
-                <small class="text-danger">{{field.errors | striptags}}</small>
-            </div>
-        {% endfor %}
-        <input type="submit" value="Add Comment" class="btn btn-success my-2">
-    </form>
-</div>
+
+
 {% endblock content %}

@@ -1,8 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-<div style='height: 100vh;'>
+{% load static %}
+<style>
+    .banner{
     
-    <h2>This Home Page</h2>
+    background-image: url('{% static "images/job_banner.jpg" %}');
+    background-size: 100% 100%; 
+    background-position: center;
+    height: 550px;
+    }
+</style>
+<div class='banner'>
+    <h2 class='text-center p-3 text-success'>Contact Us</h2>
+    
 </div>
-
-{% endblock  %}
+<div class="container-fluid bg-secondary text-white vh-100"> 
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-12">
+            <div class="d-flex flex-column align-items-center justify-content-center" style="height: 75vh;">
+                <h2 class="text-center mb-4">Contact Information</h2>
+                <address class="text-center mb-4">
+                    <strong>Address:</strong> Your address goes here, your demo address.
+                </address>
+                <p class="text-center mb-4">
+                    <strong>Phone:</strong> +8880 44338899
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

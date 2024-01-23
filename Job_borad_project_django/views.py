@@ -42,7 +42,7 @@ def ContactUSview(request):
     return render (request,'contact.html')
 
 def AboutUsView(request):
-    return render(request,'contact.html')
+    return render(request,'about.html')
     
 
 def home(request, id=None):

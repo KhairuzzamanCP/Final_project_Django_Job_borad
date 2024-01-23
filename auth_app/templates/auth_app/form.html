@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block page_title %} {{type}} Page{% endblock page_title %}
-{% block title %}
+{% block title %}<br><br><br><br>
     <h2 class="text-center my-2">
        User {{type}} Form
     </h2>
@@ -25,4 +25,5 @@
         <a href="{% url "change_password" %}" class="btn btn-danger m-2">Change Password</a>
         {% endif %}
     </form>
+    <br><br><br><br><br>
 {% endblock content %}

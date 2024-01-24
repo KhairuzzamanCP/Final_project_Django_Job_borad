@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -31,9 +32,10 @@
     </script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-lg bg-success-subtle">
       <div class="container-fluid">
-        <a style='text-shadow:4px 4px 4px blue; font-size:50px;color:white; text-decoration: none; ' href="{% url "home" %}">Job Board</a>
+        <img src="{% static 'images/nav-logo.jpeg' %}" alt="image" style='height: 40px';>
+        <a style='text-shadow:4px 4px 4px blue; font-size:40px;color:white; text-decoration: none; ' href="{% url "home" %}">Job Board</a>
         
         <button
           class="navbar-toggler"
@@ -48,7 +50,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        
+            <a style='text-shadow:4px 4px 4px blue; font-size:20px;color:white; text-decoration: none; ' href="{% url "home" %}">Home</a>
             {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
               <li class="nav-item">

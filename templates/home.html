@@ -2,30 +2,34 @@
 {% load static %}
 {% block page_title %}Home Page{% endblock page_title %}
 {% block content %}
-    <div class="px-5">
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-md-6">
-                <h2 class="display-3 fw-bold text-secondary">Welcome to Job Borad</h2>
-                <h5 class="text-info">
-                    A job board is an online platform where employers list job vacancies and job seekers apply for positions. Renowned examples include Indeed, Glassdoor, and Careerjet. These platforms often offer features like resume databases for recruiters and company pages to showcase organizational culture and values.</h5>
-                <div>
-                    <button class="btn btn-outline-warning">Apply Now</button>
-                    <button class="btn btn-outline-warning mx-2">Explore More</button>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <img src="{% static 'images/job.png' %}" alt="" style='height: 300px';>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12 col-md-6 text-center text-md-start">
+            <h2 class="display-3 fw-bold text-secondary">Welcome to Job Board</h2>
+            <h5 class="text-info">
+                A job board is an online platform where employers list job vacancies and job seekers apply for positions.
+            </h5>
+            <div class="mt-3">
+                <button class="btn btn-outline-warning">Apply Now</button>
+                <button class="btn btn-outline-warning mx-2">Explore More</button>
             </div>
         </div>
+        <div class="col-12 col-md-6 ">
+           <div class="">
+            <img src="{% static 'images/job_banner.jpg' %}" alt="" class="img-fluid">
+           </div>
+        </div>
     </div>
-   <div class="px-5">
+</div>
+
+   <div class="container">
+       <h3 class="text-success"> Filter by Job Category: </h3>
     <div class="row my-4">
-        <div class="d-flex">
-           <h3 class="text-success"> Filter by Job Category: </h3>
+        <div>
         {% for service in services %}
-            <div class="">
-                <a class="text-decoration-none btn btn-outline-primary mx-2" href="{% url 'category_wise_service' service.id%}">{{service.service}}</a>
-            </div>
+          
+                <a class="text-decoration-none btn btn-outline-primary m-2 " href="{% url 'category_wise_service' service.id%}">{{service.service}}</a>
+          
         {% endfor %}
     </div>
 </div>
@@ -39,7 +43,7 @@
                     <img src="{{ job.image.url }}" class="card-img-top" alt="images" style="height:350px; width:100%;">
                     <div class="card-body">
                         <h5 class="card-title">{{job.name}}</h5>
-                        <p class="card-text">{{job.description | truncatewords:10 }}</p>
+                        <p class="card-text fw-bold">{{job.description | truncatewords:10 }}</p>
                         <p class='text-center'><a href="{% url "job_details" job.id %}" class="btn btn-info ">view job details</a></p>
                     </div>
                 </div>

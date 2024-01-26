@@ -42,8 +42,9 @@
                 <div class="card border-0 shadow-lg bg-white rounded h-100">
                     <img src="{{ job.image.url }}" class="card-img-top" alt="images" style="height:350px; width:100%;">
                     <div class="card-body">
-                        <h5 class="card-title">{{job.name}}</h5>
-                        <p class="card-text fw-bold">{{job.description | truncatewords:10 }}</p>
+                        <h5 class="card-title text-center text-primary">{{job.title}}</h5>
+                        <h5 class="card-title text-center text-info">{{job.company_name }}</h5>
+                        <p class="card-text fw-bold text-center">{{job.description | truncatewords:10 }}</p>
                         <p class='text-center'><a href="{% url "job_details" job.id %}" class="btn btn-info ">view job details</a></p>
                     </div>
                 </div>

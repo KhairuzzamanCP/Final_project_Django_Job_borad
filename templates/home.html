@@ -48,7 +48,7 @@
                     <h5 class="card-title text-primary">Title: {{ job.title }}</h5>
                     <h5 class="card-title text-info">Company Name: {{ job.company_name }}</h5>
                     <p class="card-text fw-bold">Description: {{ job.description | truncatewords:10 }}</p>
-                    <h5 class="card-title text-primary">Salary: {{ job.salary }}</h5>
+                    <h5 class="card-title text-primary">Salary: {{ job.salary }} $</h5>
                     <p class="text-center">
                         <a href="{% url 'job_details' job.id %}" class="btn btn-info">View Job Details</a>
                     </p>

@@ -3,13 +3,19 @@
 
 {% block page_title %} {{type}} Page{% endblock page_title %}
 {% block title %}<br><br><br><br>
-    <h2 class="text-center my-2">
+       
+<div class="container text-center">
+   
+<h2 class="text-center my-2">
+    <i class="fa-solid fa-user-plus text-info"></i>   
        User {{type}} Form
+    
     </h2>
+</div>
 {% endblock title %}
 
 {% block content %}
-    <form style="width: 50%;margin: auto;" method="post" novalidate>
+    <form style="width: 50%;margin: auto; background-color:dark" method="post" novalidate>
         {% csrf_token %}
         <!-- {{ form | crispy }}-->
         {% for field in form %}
